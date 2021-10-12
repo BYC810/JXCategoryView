@@ -120,11 +120,12 @@
 
 - (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     if (self.cellWidth == JXCategoryViewAutomaticDimension) {
-        if (self.titleDataSource && [self.titleDataSource respondsToSelector:@selector(categoryTitleView:widthForTitle:)]) {
-            return [self.titleDataSource categoryTitleView:self widthForTitle:self.titles[index]];
-        } else {
-            return ceilf([self.titles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.titleFont} context:nil].size.width);
+        CGFloat width = 0;
+        if (self.titleDataSource && [self.titleDataSource respondsToSelector:@selector(categoryTitleView:widthForTitle:index:)]) {
+            width = [self.titleDataSource categoryTitleView:self widthForTitle:self.titles[index] index:index];
+            if (width != 0) {return width;}
         }
+        return ceilf([self.titles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.titleFont} context:nil].size.width);
     } else {
         return self.cellWidth;
     }

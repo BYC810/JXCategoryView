@@ -18,6 +18,10 @@
 @property (nonatomic, strong) NSLayoutConstraint *titleLabelCenterY;
 @property (nonatomic, strong) NSLayoutConstraint *maskTitleLabelCenterX;
 
+@property (nonatomic, strong) CALayer *titleMaskLayer;
+@property (nonatomic, strong) CALayer *maskTitleMaskLayer;
+@property (nonatomic, strong) NSLayoutConstraint *maskTitleLabelCenterY;
+
 - (JXCategoryCellSelectedAnimationBlock)preferredTitleZoomAnimationBlock:(JXCategoryTitleCellModel *)cellModel baseScale:(CGFloat)baseScale;
 
 - (JXCategoryCellSelectedAnimationBlock)preferredTitleStrokeWidthAnimationBlock:(JXCategoryTitleCellModel *)cellModel attributedString:(NSMutableAttributedString *)attributedString;

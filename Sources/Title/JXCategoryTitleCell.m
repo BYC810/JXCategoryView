@@ -11,9 +11,7 @@
 #import "JXCategoryFactory.h"
 
 @interface JXCategoryTitleCell ()
-@property (nonatomic, strong) CALayer *titleMaskLayer;
-@property (nonatomic, strong) CALayer *maskTitleMaskLayer;
-@property (nonatomic, strong) NSLayoutConstraint *maskTitleLabelCenterY;
+
 @end
 
 @implementation JXCategoryTitleCell
